@@ -1,48 +1,26 @@
-/**
+package in.satheesh.excephandling;
+// Below Example is for checked(compile time) or unchecked(Run time) Exception?  ---unchecked Exception
+/*
+ * java app is connected to outer resource is called checked exception
+ * Few other checked exceptions are SQLException,IOException,ClassNotFoundException and InvocationTargetException.
  * 
- */
-package in.satheesh.collections;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-
-/**
- * @author Satheesh
- *
+ * java app is not connected to any outside resources is called unchecked exception
+ * Few other uncheckedException(compiler wont handle, are not checked at compile time they occurs are runtime
+ * like NullpointerException,ArrayIndexOutOfBoundException, ArithmeticException,IllegalArgumentException and NumberFormatException.
  */
 public class Test {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		ArrayList al = new ArrayList(); 
-		  
-        for (int i = 0; i < 10; i++) 
-            al.add(i); 
-  
-        System.out.println(al); 
-  
-        // at beginning itr(cursor) will point to 
-        // index just before the first element in al 
-        Iterator itr = al.iterator(); 
-  
-        // checking the next element availabilty 
-        while (itr.hasNext()) 
-        { 
-            //  moving cursor to next element 
-            int i = (Integer)itr.next(); 
-  
-            // getting even elements one by one 
-            System.out.print(i + " "); 
-  
-            // Removing odd elements 
-            if (i % 2 != 0) 
-               itr.remove();  
-        } 
-        System.out.println();  
-        System.out.println(al);
-
-	}
+			doStuff();
+	
+		}
+		public static void doStuff()
+		{
+			doMoreStuff();
+		}
+		public static void doMoreStuff()
+		{
+			System.out.println(10/0);
+		}
 
 }
